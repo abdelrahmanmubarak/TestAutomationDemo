@@ -18,6 +18,7 @@ public class Waits {
     // wait for Element to be present
 
     public static WebElement waitForElementPresent(WebDriver driver, By locator){
+        LogsUtil.info("Waiting for element: " + locator.toString() + " to be present");
         return new WebDriverWait(driver, Duration.ofSeconds(10)).
                 until(driver1 -> driver1.findElement(locator));
 
@@ -25,6 +26,7 @@ public class Waits {
 
     // wait for element to be visible
     public static WebElement waitForElementVisible(WebDriver driver, By locator){
+        LogsUtil.info("Waiting for element: " + locator.toString() + " to be visible");
         return new WebDriverWait(driver,Duration.ofSeconds(10)).
                 until(driver1 -> {
                     WebElement element = waitForElementPresent(driver,locator);
@@ -33,6 +35,7 @@ public class Waits {
     }
     // wait for element to  be clickable
     public static WebElement waitForElementClickable(WebDriver driver, By locator){
+        LogsUtil.info("Waiting for element: " + locator.toString() + " to be clickable");
         return new WebDriverWait(driver,Duration.ofSeconds(10)).
                 until(driver1 -> {
                     WebElement element = waitForElementVisible(driver,locator);

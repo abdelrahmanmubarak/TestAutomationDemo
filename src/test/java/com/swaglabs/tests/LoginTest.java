@@ -1,41 +1,51 @@
 package com.swaglabs.tests;
 
+import com.swaglabs.drivers.DriverManager;
 import com.swaglabs.pages.LoginPage;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import com.swaglabs.utils.AllureUtils;
+import com.swaglabs.utils.BrowserActions;
+import com.swaglabs.utils.FilesUtils;
+import com.swaglabs.utils.ScreenshotsUtils;
+import org.testng.annotations.*;
+
+import java.io.File;
 
 public class LoginTest {
 
     // variables
+    File allure_results = new File("test-outputs/allure-results");
 
-    private WebDriver driver;
     // tests
     @Test
     public void successfulLogin(){
-        new LoginPage(driver).enterUsername("standard_user")
+        new LoginPage(DriverManager.getDriver()).enterUsername("standard_user")
                 .enterPassword("secret_sauce")
                 .clickLoginBtn()
                 .assertSuccessfulLogin();
+                ScreenshotsUtils.takeScreenshot("successful-Login");
+
+
+
 
     }
     // configurations
-
+    @BeforeSuite
+    public void beforeSuite(){
+        FilesUtils.deleteFiles(allure_results);
+    }
     @BeforeMethod
     public void setUp(){
-        EdgeOptions edgeOptions = new EdgeOptions();
-        edgeOptions.addArguments("start-maximized");
-        edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new EdgeDriver(edgeOptions);
-        new LoginPage(driver).navigateToLoginPage();
+         DriverManager.createInstance("edge");
+        new LoginPage(DriverManager.getDriver()).navigateToLoginPage();
+
     }
 
     @AfterMethod
     public void tearDown(){
-        driver.quit();
+        BrowserActions.closeBrowser(DriverManager.getDriver());
+    }
+    @AfterClass
+    public void afterClass(){
+        AllureUtils.attachLogsToAllureReport();
     }
 }
