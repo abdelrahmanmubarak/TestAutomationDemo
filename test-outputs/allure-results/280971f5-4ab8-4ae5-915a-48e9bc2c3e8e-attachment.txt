@@ -1,0 +1,63 @@
+[DEBUG] - [15-04-2025 13:02:06] [main] [org.testng.TestNG] - suiteXmlPath: "/Users/abdelrahmanmubarak/Library/Caches/JetBrains/IntelliJIdea2024.3/temp-testng-customsuite.xml"
+[INFO] - [15-04-2025 13:02:07] [main] [com.swaglabs.listeners.TestNGListeners] - Test Execution started
+[INFO] - [15-04-2025 13:02:07] [main] [com.swaglabs.utils.PropertiesUtils] - Loading Properties File Data
+[INFO] - [15-04-2025 13:02:07] [main] [com.swaglabs.utils.FilesUtils] - Cleaned directory and preserved latest log file: Log_2025-04-15_13-02-06.log
+[INFO] - [15-04-2025 13:02:07] [main] [com.swaglabs.utils.FilesUtils] - Cleaned directory and preserved latest log file: No logs found
+[INFO] - [15-04-2025 13:02:07] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  /Users/abdelrahmanmubarak/Library/Caches/JetBrains/IntelliJIdea2024.3/temp-testng-customsuite.xml
+
+[INFO] - [15-04-2025 13:02:12] [main] [com.swaglabs.drivers.DriverManager] - Browser is created Browser Name: Edge
+[INFO] - [15-04-2025 13:02:13] [main] [com.swaglabs.utils.BrowserActions] - Navigated to URL: https://www.saucedemo.com/
+[INFO] - [15-04-2025 13:02:13] [main] [com.swaglabs.utils.AllureUtils] - Logs attached to allure report
+[DEBUG] - [15-04-2025 13:02:13] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['login-credentials']['username']
+[INFO] - [15-04-2025 13:02:13] [main] [com.swaglabs.utils.JsonUtils] - Json path: 'login-credentials.username' in the json file: 'test-data' has value: 'standard_user'
+[INFO] - [15-04-2025 13:02:13] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.id: user-name to be visible
+[INFO] - [15-04-2025 13:02:13] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.id: user-name to be present
+[INFO] - [15-04-2025 13:02:13] [main] [com.swaglabs.utils.Scrolling] - Scrolling to element: By.id: user-name
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.ElementActions] - Data entered: standard_user in the field: By.id: user-name
+[DEBUG] - [15-04-2025 13:02:14] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['login-credentials']['password']
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.JsonUtils] - Json path: 'login-credentials.password' in the json file: 'test-data' has value: 'secret_sauce'
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.id: password to be visible
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.id: password to be present
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.Scrolling] - Scrolling to element: By.id: password
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.ElementActions] - Data entered: secret_sauce in the field: By.id: password
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.id: login-button to be visible
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.id: login-button to be present
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.Scrolling] - Scrolling to element: By.id: login-button
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.ElementActions] - Clicked on element: By.id: login-button
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.BrowserActions] - Current URL: https://www.saucedemo.com/inventory.html
+[INFO] - [15-04-2025 13:02:14] [main] [com.swaglabs.utils.AllureUtils] - Logs attached to allure report
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.listeners.TestNGListeners] - Test Case successfulLogin passed
+[DEBUG] - [15-04-2025 13:02:15] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['product-names']['item1']['name']
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.JsonUtils] - Json path: 'product-names.item1.name' in the json file: 'test-data' has value: 'Sauce Labs Backpack'
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.pages.HomePage] - adding Product Sauce Labs Backpackto cart 
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: [unknown locator] to be visible
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: [unknown locator] to be present
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Scrolling] - Scrolling to element: [unknown locator]
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.ElementActions] - Clicked on element: [unknown locator]
+[DEBUG] - [15-04-2025 13:02:15] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['product-names']['item1']['name']
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.JsonUtils] - Json path: 'product-names.item1.name' in the json file: 'test-data' has value: 'Sauce Labs Backpack'
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: [unknown locator] to be visible
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: [unknown locator] to be present
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Scrolling] - Scrolling to element: [unknown locator]
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.ElementActions] -  Getting Text from the element: [unknown locator] is: Remove
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.pages.HomePage] - Actual Value is Remove
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.pages.HomePage] - Sauce Labs Backpack Added to cart successfully
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.AllureUtils] - Logs attached to allure report
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.listeners.TestNGListeners] - Test Case addingProductToCart passed
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.cssSelector: [data-test='shopping-cart-link'] to be visible
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.cssSelector: [data-test='shopping-cart-link'] to be present
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Scrolling] - Scrolling to element: By.cssSelector: [data-test='shopping-cart-link']
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.ElementActions] - Clicked on element: By.cssSelector: [data-test='shopping-cart-link']
+[DEBUG] - [15-04-2025 13:02:15] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['product-names']['item2']['name']
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.JsonUtils] - Json path: 'product-names.item2.name' in the json file: 'test-data' has value: 'Sauce Labs Bike Light'
+[DEBUG] - [15-04-2025 13:02:15] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['product-names']['item1']['price']
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.JsonUtils] - Json path: 'product-names.item1.price' in the json file: 'test-data' has value: '$29.99'
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.cssSelector: .inventory_item_name to be visible
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.cssSelector: .inventory_item_name to be present
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Scrolling] - Scrolling to element: By.cssSelector: .inventory_item_name
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.ElementActions] -  Getting Text from the element: By.cssSelector: .inventory_item_name is: Sauce Labs Backpack
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.cssSelector: .inventory_item_price to be visible
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Waits] - Waiting for element: By.cssSelector: .inventory_item_price to be present
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.Scrolling] - Scrolling to element: By.cssSelector: .inventory_item_price
+[INFO] - [15-04-2025 13:02:15] [main] [com.swaglabs.utils.ElementActions] -  Getting Text from the element: By.cssSelector: .inventory_item_price is: $29.99

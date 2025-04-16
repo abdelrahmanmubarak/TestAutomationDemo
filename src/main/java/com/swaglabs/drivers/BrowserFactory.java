@@ -1,5 +1,6 @@
 package com.swaglabs.drivers;
 
+import com.swaglabs.utils.PropertiesUtils;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,7 +39,10 @@ public class BrowserFactory {
         chromeOptions.addArguments("--disable-infobars");
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--remote-allow-origins=*");
-        // options.addArguments("--headless");
+        if (!PropertiesUtils.getPropertyValue("executionType").equalsIgnoreCase("local")){
+            chromeOptions.addArguments("--headless");
+        }
+
 
         Map<String, Object> prefs = Map.of(
                 "profile.default_content_setting_values.notifications", 2,
@@ -61,7 +65,9 @@ public class BrowserFactory {
         firefoxOptions.addArguments("--remote-allow-origins=*");
         firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         firefoxOptions.setAcceptInsecureCerts(true);
-        // firefoxOptions.addArguments("--headless");
+        if (!PropertiesUtils.getPropertyValue("executionType").equalsIgnoreCase("local")){
+            firefoxOptions.addArguments("--headless");
+        }
         return firefoxOptions;
     }
 
@@ -72,7 +78,6 @@ public class BrowserFactory {
         edgeOptions.addArguments("--disable-infobars");
         edgeOptions.addArguments("--disable-notifications");
         edgeOptions.addArguments("--remote-allow-origins=*");
-        // edgeOptions.addArguments("--headless");
 
         Map<String, Object> edgePrefs = Map.of(
                 "profile.default_content_setting_values.notifications", 2,
@@ -83,6 +88,10 @@ public class BrowserFactory {
 
         edgeOptions.setExperimentalOption("prefs", edgePrefs);
         edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        if (!PropertiesUtils.getPropertyValue("executionType").equalsIgnoreCase("local")){
+            edgeOptions.addArguments("--headless");
+        }
+
         return edgeOptions;
     }
 

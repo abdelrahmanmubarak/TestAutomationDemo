@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import static com.swaglabs.utils.PropertiesUtils.getPropertyValue;
+
 public class LoginPage {
 
     // locators
@@ -52,23 +54,23 @@ public class LoginPage {
     // validations
     @Step("Assert login page url")
     public LoginPage assertLoginPageUrl(){
-        CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.getCurrentUrl(driver),"https://www.saucedemo.com/login.html");
+        CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.getCurrentUrl(driver),getPropertyValue("homeURL"),"URL is not as expected");
         return this;
     }
     @Step("Assert login page title")
     public LoginPage assertLoginPageTitle(){
-        CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.getPageTitle(driver),"Swag Labs");
+        CustomSoftAssertion.softAssertion.assertEquals(BrowserActions.getPageTitle(driver),getPropertyValue("appTitle"),"Title is not as expected");
         return this;
     }
     @Step("Assert successful login")
     public LoginPage assertSuccessfulLogin(){
-        Validations.validatePageUrl(driver,"https://www.saucedemo.com/inventory.html");
+        Validations.validatePageUrl(driver, getPropertyValue("homeURL"));
         return this;
 
     }
     @Step("Assert unsuccessful login")
     public LoginPage assertUnsuccessfulLogin(){
-        Validations.validateEquals(getErrorMessage(),"Epic sadface: Username and password do not match any user in this service","Error message is not correct");
+        Validations.validateEquals(getErrorMessage(),getPropertyValue("errorMSG"), "Error message is not as expected");
 
         return this;
 

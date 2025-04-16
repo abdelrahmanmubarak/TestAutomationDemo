@@ -14,7 +14,7 @@ public class DriverManager {
 
     private static final ThreadLocal<WebDriver> driverThreadLocal =  new ThreadLocal<>();
 
-    @Step("Create instance of browser: {browserName}")
+    @Step("Create instance of browser started on : {browserName}")
     public static WebDriver createInstance(String browserName){
        WebDriver driver = BrowserFactory.getBrowser(browserName);
        LogsUtil.info("Browser is created","Browser Name: "+browserName);
