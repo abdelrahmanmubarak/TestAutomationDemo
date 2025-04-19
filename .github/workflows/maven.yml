@@ -3,28 +3,30 @@ name: Run Tests on addingNewGitCommands
 on:
   push:
     branches:
-      - addingNewGitCommands  # Trigger the workflow on push to the addingNewGitCommands branch
+      - addingNewGitCommands
   pull_request:
     branches:
-      - addingNewGitCommands  # Trigger the workflow on pull requests to the addingNewGitCommands branch
+      - addingNewGitCommands
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Java
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      # Step 3: Cache Maven dependencies
+      - name: Install Edge browser
+        uses: browser-actions/setup-edge@v1
+        with:
+          channel: 'stable'
+
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
@@ -33,13 +35,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-m2-
 
-      # Step 4: Run tests with Maven
       - name: Run tests
-        run: mvn clean test
+        run: mvn clean test -DexecutionType=headless
 
-      # Step 5: Generate Allure report
       - name: Generate Allure report
         run: |
           mvn allure:report
 
-      
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: test-outputs/allure-results
