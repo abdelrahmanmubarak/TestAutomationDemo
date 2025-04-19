@@ -41,7 +41,7 @@ jobs:
 
       # Step 5: Run tests with Maven in headless mode
       - name: Run tests
-        run: mvn clean test -DexecutionType=headless
+        run: mvn clean test -DexecutionType=headless -Dallure.results.directory=test-outputs/allure-results
 
       # Old Step 6: Generate Allure report
       # - name: Generate Allure report
