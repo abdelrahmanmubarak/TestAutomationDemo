@@ -39,29 +39,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-m2-
 
-      # Step 5: Run tests with Maven in headless mode
+      # Step 5: Run tests and generate allure results
       - name: Run tests
         run: mvn clean test -DexecutionType=headless -Dallure.results.directory=test-outputs/allure-results
 
-      # Old Step 6: Generate Allure report
-      # - name: Generate Allure report
-      #   run: |
-      #     mvn allure:report
-
-      # Old Step 7: Upload Allure report as an artifact
-      # - name: Upload Allure report
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: allure-report
-      #     path: test-outputs/allure-results
-
-      # ✅ New Step: Generate Allure HTML report
+      # Step 6: Generate Allure HTML report
       - name: Generate Allure HTML report
         run: mvn allure:report -Dallure.results.directory=test-outputs/allure-results
 
-      # ✅ New Step: Upload the full HTML report as an artifact
+      # Step 7: Upload the Allure HTML report
       - name: Upload Allure HTML Report
         uses: actions/upload-artifact@v4
         with:
           name: allure-html
-          path: test-outputs/allure-results
+          path: target/site/allure-maven-plugin
