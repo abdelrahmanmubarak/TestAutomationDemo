@@ -1,5 +1,0 @@
-[DEBUG] - [19-04-2025 16:41:19] [main] [org.testng.TestNG] - suiteXmlPath: "/Users/abdelrahmanmubarak/IdeaProjects/TestAutomationDemo/testng.xml"
-[INFO] - [19-04-2025 16:41:20] [main] [com.swaglabs.listeners.TestNGListeners] - Test Execution started
-[INFO] - [19-04-2025 16:41:20] [main] [com.swaglabs.utils.PropertiesUtils] - Loading Properties File Data
-[INFO] - [19-04-2025 16:41:20] [main] [com.swaglabs.utils.FilesUtils] - Cleaned directory and preserved latest log file: Log_2025-04-19_16-41-19.log
-[INFO] - [19-04-2025 16:41:20] [main] [com.swaglabs.utils.FilesUtils] - Cleaned directory and preserved latest log file: No logs found

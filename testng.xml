@@ -6,7 +6,7 @@
         </classes>
     </test>
     <listeners>
-        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
+        <listener class-name="com.swaglabs.listeners.TestNGListeners" />
     </listeners>
 
 </suite>
