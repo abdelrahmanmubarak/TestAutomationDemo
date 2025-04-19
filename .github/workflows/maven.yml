@@ -57,7 +57,7 @@ jobs:
 
       # ✅ New Step: Generate Allure HTML report
       - name: Generate Allure HTML report
-        run: mvn allure:report
+        run: mvn allure:report -Dallure.results.directory=test-outputs/allure-results
 
       # ✅ New Step: Upload the full HTML report as an artifact
       - name: Upload Allure HTML Report
