@@ -1,8 +1,0 @@
-[DEBUG] - [17-04-2025 15:59:08] [main] [org.testng.TestNG] - suiteXmlPath: "/Users/abdelrahmanmubarak/Library/Caches/JetBrains/IntelliJIdea2024.3/temp-testng-customsuite.xml"
-[INFO] - [17-04-2025 15:59:09] [main] [com.swaglabs.listeners.TestNGListeners] - Test Execution started
-[INFO] - [17-04-2025 15:59:09] [main] [com.swaglabs.utils.PropertiesUtils] - Loading Properties File Data
-[INFO] - [17-04-2025 15:59:09] [main] [com.swaglabs.utils.FilesUtils] - Cleaned directory and preserved latest log file: Log_2025-04-17_15-59-08.log
-[INFO] - [17-04-2025 15:59:09] [main] [com.swaglabs.utils.FilesUtils] - Cleaned directory and preserved latest log file: No logs found
-[INFO] - [17-04-2025 15:59:09] [main] [org.testng.internal.Utils] - [TestNG] Running:
-  /Users/abdelrahmanmubarak/Library/Caches/JetBrains/IntelliJIdea2024.3/temp-testng-customsuite.xml
-
