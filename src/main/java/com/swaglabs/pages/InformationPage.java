@@ -31,16 +31,17 @@ public class InformationPage {
         return this;
     }
     @Step("Click continue button")
-    public InformationPage clickContinueButton(){
+    public OverviewPage clickContinueButton(){
         ElementActions.clickElement(driver,continueButton);
-        return this;
+        return new OverviewPage(driver);
     }
 
     //validations
     @Step("Assert Information Page")
-    public void assertInformationPage(String firstName, String lastName, String postalCode){
-        CustomSoftAssertion.softAssertion.assertEquals(ElementActions.getText(driver,this.firstName),firstName);
-        CustomSoftAssertion.softAssertion.assertEquals(ElementActions.getText(driver,this.lastName),lastName);
-        CustomSoftAssertion.softAssertion.assertEquals(ElementActions.getText(driver,this.postalCode),postalCode);
+    public InformationPage assertInformationPage(String firstName, String lastName, String postalCode){
+        CustomSoftAssertion.softAssertion.assertEquals(ElementActions.getTextFromInput(driver,this.firstName),firstName);
+        CustomSoftAssertion.softAssertion.assertEquals(ElementActions.getTextFromInput(driver,this.lastName),lastName);
+        CustomSoftAssertion.softAssertion.assertEquals(ElementActions.getTextFromInput(driver,this.postalCode),postalCode);
+        return this;
     }
 }

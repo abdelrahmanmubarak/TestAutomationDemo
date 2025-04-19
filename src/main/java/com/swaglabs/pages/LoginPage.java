@@ -1,9 +1,6 @@
 package com.swaglabs.pages;
 
-import com.swaglabs.utils.BrowserActions;
-import com.swaglabs.utils.CustomSoftAssertion;
-import com.swaglabs.utils.ElementActions;
-import com.swaglabs.utils.Validations;
+import com.swaglabs.utils.*;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +12,7 @@ public class LoginPage {
 
     // locators
     private final WebDriver driver;
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -63,18 +61,21 @@ public class LoginPage {
         return this;
     }
     @Step("Assert successful login")
-    public LoginPage assertSuccessfulLogin(){
+    public HomePage assertSuccessfulLogin(){
         Validations.validatePageUrl(driver, getPropertyValue("homeURL"));
-        return this;
+        return new HomePage(driver);
 
     }
     @Step("Assert unsuccessful login")
-    public LoginPage assertUnsuccessfulLogin(){
+    public HomePage assertUnsuccessfulLogin(){
         Validations.validateEquals(getErrorMessage(),getPropertyValue("errorMSG"), "Error message is not as expected");
 
-        return this;
+        return new HomePage(driver);
+
 
     }
+
+
 
 
 

@@ -37,4 +37,10 @@ public class ElementActions {
         LogsUtil.info("Finding element: " + locator.toString());
         return driver.findElement(locator);
     }
+    public static String getTextFromInput(WebDriver driver, By locator){
+        Waits.waitForElementVisible(driver, locator);
+        Scrolling.scrollToElement(driver, locator);
+        LogsUtil.info("getting text from the input field ", locator.toString(),"Text: ", findElement(driver,locator).getDomAttribute("value"));
+        return findElement(driver, locator).getDomAttribute("value");
+    }
 }

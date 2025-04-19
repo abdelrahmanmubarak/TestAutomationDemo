@@ -52,4 +52,10 @@ public class HomePage {
         return this;
 
     }
+
+    @Step("Take screenshot: {screenshotName}")
+    public HomePage takeScreenshot(String screenshotName) {
+        ScreenshotsUtils.takeScreenshot(screenshotName);
+        return this;
+    }
 }

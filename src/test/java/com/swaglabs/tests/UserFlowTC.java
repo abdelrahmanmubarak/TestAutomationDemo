@@ -2,74 +2,65 @@ package com.swaglabs.tests;
 
 import com.swaglabs.drivers.DriverManager;
 import com.swaglabs.listeners.TestNGListeners;
-import com.swaglabs.pages.CartPage;
-import com.swaglabs.pages.HomePage;
-import com.swaglabs.pages.InformationPage;
 import com.swaglabs.pages.LoginPage;
-import com.swaglabs.utils.*;
+import com.swaglabs.utils.BrowserActions;
+import com.swaglabs.utils.JsonUtils;
+import com.swaglabs.utils.PropertiesUtils;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
-
 @Listeners(TestNGListeners.class)
-public class E2e {
+public class UserFlowTC {
 
     // variables
     WebDriver driver;
     JsonUtils testData;
 
-    // tests
+
+
     @Test
-    public void successfulLogin(){
+    public void userFlow(){
         new LoginPage(DriverManager.getDriver()).enterUsername(testData.getJsonData("login-credentials.username"))
                 .enterPassword(testData.getJsonData("login-credentials.password"))
                 .clickLoginBtn()
-                .assertSuccessfulLogin();
-    }
+                .assertSuccessfulLogin()
+                .takeScreenshot("Step1-Login") // Take screenshot after login
+                .addSpecificItemToCart(testData.getJsonData("product-names.item1.name"))
+                .assertProductAddedToCart(testData.getJsonData("product-names.item1.name"))
+                .takeScreenshot("Step2-AddItemToCart") // Take screenshot after adding item to cart
 
-    @Test(dependsOnMethods = "successfulLogin")
-    public void addingProductToCart(){
-        new HomePage(driver).addSpecificItemToCart(testData.getJsonData("product-names.item1.name"))
-                .assertProductAddedToCart(testData.getJsonData("product-names.item1.name"));
-    }
-
-    @Test(dependsOnMethods = "addingProductToCart")
-    public void checkOutProduct(){
-        new HomePage(driver).clickOnCartIcon()
-                .assertProductDetails(testData.getJsonData("product-names.item1.name"), testData.getJsonData("product-names.item1.price") );
-
-    }
-
-    @Test(dependsOnMethods = "checkOutProduct")
-    public void fillInformationForm(){
-        new CartPage(driver).clickCheckoutButton()
+                .clickOnCartIcon()
+                .assertProductDetails(testData.getJsonData("product-names.item1.name"), testData.getJsonData("product-names.item1.price"))
+                .clickCheckoutButton()
                 .fillInformationForm(testData.getJsonData("information-form.firstName"),
                         testData.getJsonData("information-form.lastName"),
                         testData.getJsonData("information-form.postalCode"))
                 .assertInformationPage(testData.getJsonData("information-form.firstName"),
                         testData.getJsonData("information-form.lastName"),
-                        testData.getJsonData("information-form.postalCode"));
-
-    }
-    @Test(dependsOnMethods = "fillInformationForm")
-    public void finishCheckOut(){
-        new InformationPage(driver)
+                        testData.getJsonData("information-form.postalCode"))
                 .clickContinueButton()
                 .clickOnFinishButton()
                 .assertConfirmationMessage(testData.getJsonData("confirmation-message"));
+
     }
     // configurations
     @BeforeClass
     public void beforeClass(){
-
         testData = new JsonUtils("test-data");
+
+    }
+
+    @BeforeMethod(alwaysRun = true)
+    public void setUP(){
+
         String browserName = PropertiesUtils.getPropertyValue("browserType");
         driver = DriverManager.createInstance(browserName);
         new LoginPage(DriverManager.getDriver()).navigateToLoginPage();
     }
 
-    @AfterClass
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
         BrowserActions.closeBrowser(driver);
     }
+
 }

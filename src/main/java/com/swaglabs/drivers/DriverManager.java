@@ -8,31 +8,43 @@ import static org.testng.Assert.fail;
 
 public class DriverManager {
 
-    private DriverManager(){
+    private DriverManager() {
         super();
     }
 
-    private static final ThreadLocal<WebDriver> driverThreadLocal =  new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
     @Step("Create instance of browser started on : {browserName}")
-    public static WebDriver createInstance(String browserName){
-       WebDriver driver = BrowserFactory.getBrowser(browserName);
-       LogsUtil.info("Browser is created","Browser Name: "+browserName);
-       setDriver(driver);
-       return getDriver();
+    public static WebDriver createInstance(String browserName) {
+        WebDriver driver = BrowserFactory.getBrowser(browserName);
+        LogsUtil.info("Browser is created", "Browser Name: " + browserName);
+        setDriver(driver);
+        return getDriver();
     }
 
-    public static WebDriver getDriver(){
-        if (driverThreadLocal.get()==null){
+    public static WebDriver getDriver() {
+        if (driverThreadLocal.get() == null) {
             LogsUtil.error("Driver is null");
             fail("Driver is null");
         }
         return driverThreadLocal.get();
     }
 
-    public static void setDriver(WebDriver driver){
-         driverThreadLocal.set(driver);
+    public static void setDriver(WebDriver driver) {
+        driverThreadLocal.set(driver);
     }
 
+    @Step("Quit the browser instance")
+    public static void quitDriver() {
+        if (driverThreadLocal.get() != null) {
+            driverThreadLocal.get().quit();
+            driverThreadLocal.remove(); // Clean up ThreadLocal
+            LogsUtil.info("Browser instance quit successfully");
+        }
+    }
 
+    public static void removeDriver() {
+        driverThreadLocal.remove();
+        LogsUtil.info("Driver removed from ThreadLocal");
+    }
 }
