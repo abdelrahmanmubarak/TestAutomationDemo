@@ -66,7 +66,7 @@ public class BrowserFactory {
         firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         firefoxOptions.setAcceptInsecureCerts(true);
         if (!PropertiesUtils.getPropertyValue("executionType").equalsIgnoreCase("local")){
-            firefoxOptions.addArguments("--headless");
+            //firefoxOptions.addArguments("--headless");
         }
         return firefoxOptions;
     }
