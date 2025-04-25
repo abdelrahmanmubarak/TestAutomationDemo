@@ -42,18 +42,29 @@ jobs:
       # Step 5: Run tests and generate allure results
       - name: Run tests
         run: mvn clean test -DexecutionType=headless -Dallure.results.directory=${{ github.workspace }}/test-outputs/allure-results
-          
+
       # Step 6 (optional): Debug - List Allure results folder
       - name: List Allure results
         run: ls -lR ${{ github.workspace }}/test-outputs/allure-results
 
-      # Step 6: Generate Allure HTML report
+      # Step 7: Generate Allure HTML report
       - name: Generate Allure HTML report
         run: mvn allure:report -Dallure.results.directory=${{ github.workspace }}/test-outputs/allure-results
 
-      # Step 7: Upload the Allure HTML report
+      # Step 8: Upload the Allure HTML report
       - name: Upload Allure HTML Report
         uses: actions/upload-artifact@v4
         with:
           name: allure-html
           path: target/site/allure-maven-plugin
+
+      # Step 9: Report build status to Jira
+      - name: Report build status to Jira
+        uses: atlassian/gajira-build@v2
+        with:
+          site: infornma-team-gk85at2g.atlassian.net
+          cloud-id: 5d4e6439-9ef6-4a3d-bc1e-7d5cd73b3f9f
+          email: perolo6288@infornma.com
+          api-token: ATATT3xFfGF08DaNCyblhT6HqIgrQraX0sTO8XqMaBfikBbeda4uYiucfw7aTmxzSo0zkpIua49uAntXCx1wJ0eIXEfSa_TlGWMBCMLKqRA5sI2FhBvZVL7llbvK8AVe2z2XQYWsz_3wuMTX-klS3rV6MHweyVEqGASDns_I1KTuDxcRh25EIcQ=435E1930
+          issue: CHATGPT-8
+          status: successful
