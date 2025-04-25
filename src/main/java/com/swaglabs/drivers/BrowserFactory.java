@@ -63,7 +63,7 @@ public class BrowserFactory {
         firefoxOptions.addArguments("--disable-infobars");
         firefoxOptions.addArguments("--disable-notifications");
         firefoxOptions.addArguments("--remote-allow-origins=*");
-        firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        //firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         firefoxOptions.setAcceptInsecureCerts(true);
         if (!PropertiesUtils.getPropertyValue("executionType").equalsIgnoreCase("local")){
             //firefoxOptions.addArguments("--headless");
