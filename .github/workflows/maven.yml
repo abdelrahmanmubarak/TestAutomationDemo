@@ -63,8 +63,8 @@ jobs:
         uses: atlassian/gajira-build@v2
         with:
           site: infornma-team-gk85at2g.atlassian.net
-          cloud-id: 5d4e6439-9ef6-4a3d-bc1e-7d5cd73b3f9f
-          email: perolo6288@infornma.com
-          api-token: ATATT3xFfGF08DaNCyblhT6HqIgrQraX0sTO8XqMaBfikBbeda4uYiucfw7aTmxzSo0zkpIua49uAntXCx1wJ0eIXEfSa_TlGWMBCMLKqRA5sI2FhBvZVL7llbvK8AVe2z2XQYWsz_3wuMTX-klS3rV6MHweyVEqGASDns_I1KTuDxcRh25EIcQ=435E1930
-          issue: CHATGPT-8
+          cloud-id: ${{ secrets.JIRA_CLOUD_ID }}
+          email: ${{ secrets.JIRA_EMAIL }}
+          api-token: ${{ secrets.JIRA_API_TOKEN }}
+          issue: CHATGPT-1
           status: successful
