@@ -60,7 +60,7 @@ jobs:
 
       # Step 9: Report build status to Jira
       - name: Report build status to Jira
-        uses: atlassian/gajira-build@v2
+        uses: atlassian/gajira-build@v3
         with:
           site: infornma-team-gk85at2g.atlassian.net
           cloud-id: ${{ secrets.JIRA_CLOUD_ID }}
